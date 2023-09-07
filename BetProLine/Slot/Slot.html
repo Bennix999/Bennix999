@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dienstleistungen</title>
+    <style>
+        /* Gemeinsamer Stil für die Seiten */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://hintergrundbild.org/wallpaper/full/a/7/b/31466-popular-fussball-hintergrundbilder-1920x1080-retina.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        header {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .tabs {
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: transparent;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #ff5722;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tab:hover {
+            background-color: #ff5722;
+            color: #fff;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        #logo {
+            position: absolute; /* Positionierung des Logos */
+            top: 10px; /* Anpassen, um die vertikale Position zu ändern */
+            right: 20px; /* Anpassen, um die horizontale Position zu ändern */
+            max-width: 150px; /* Maximale Breite des Logos */
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            width: 100%;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        /* Stil für den Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            bottom: 0;  
+        }
+
+        /* Stil für Dienstleistungen */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .service-box {
+            width: calc(33.33% - 20px);
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .service-title {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .service-link {
+            display: block;
+            text-align: center;
+            background-color: #ff5722;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .service-link:hover {
+            background-color: #d84315;
+        }
+
+        /* Stil für Wettboxen */
+        .bet-box {
+            width: 100%;
+            padding: 20px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        /* Stil für Slotmaschine */
+        .slot-machine {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            max-width: 600px;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .reels {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .reel {
+            width: 150px;
+            height: 150px;
+            background-color: #ddd;
+            border: 2px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #spin-button {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            transition: background-color 0.3s;
+        }
+
+        #spin-button:hover {
+            background-color: #ff7733;
+        }
+
+        #win-banner, #try-again-banner {
+            display: none;
+            font-size: 24px;
+            color: #ff5722;
+            margin-top: 20px;
+        }
+
+        #win-amount {
+            font-size: 18px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .confetti {
+            width: 10px;
+            height: 10px;
+            background-color: #ff5722;
+            position: absolute;
+            animation: confetti-fall 4s ease-out infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(800px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-10px);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+            75% {
+                transform: translateX(-10px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo hinzufügen und positionieren -->
+        <img id="logo" src="file:///Users/hypedbenni/Desktop/Web Entwicklung /BetProLine/Logos /RealOne2023-09-06 um 11.22.22.png" alt="ProBetLine Logo">
+        <h1>ProBetLine</h1>
+        <div class="tabs">
+            <a href="file:///Users/hypedbenni/Desktop/Web%20Entwicklung%20/BetProLine/Index.html" class="tab">Startseite</a>
+            <a href="file:///Users/hypedbenni/Desktop/Web Entwicklung /BetProLine/Dienstleistungen im Überblick /Dienstleistungen.html" class="tab">Dienstleistungen</a>
+            <a href="file:///Users/hypedbenni/Desktop/Web%20Entwicklung%20/BetProLine/Slot/Slot.html" class="tab">Slotmaschine</a>
+            <a href="file:///Users/hypedbenni/Desktop/Web Entwicklung /BetProLine/Mein Konto /MeinKonto.html" class="tab">Mein Konto</a> 
+            <a href="file:///Users/hypedbenni/Desktop/Web%20Entwicklung%20/BetProLine/Kontakt%20/Kontakte.html" class="tab">Kontakt</a>
+            <a href="file:///Users/hypedbenni/Desktop/Web%20Entwicklung%20/BetProLine/Über%20uns%20/UeberUns.html" class="tab">Über uns</a>
+            <a href="https://sports.tipico.de/de" class="tab">Partner Tipico</a>
+        </div>
+    </header>
+    
+    <main>
+     
+
+        <!-- Slotmaschine -->
+        <div class="slot-machine">
+            <h1>Slotmaschine</h1>
+            <div id="balance">Kontostand: 1000 Euro</div>
+            <div id="bet-selector">
+                <label for="bet">Einsatz pro Spin:</label>
+                <select id="bet">
+                    <option value="0.1">10 Cent</option>
+                    <option value="0.2">20 Cent</option>
+                    <option value="0.5">50 Cent</option>
+                    <option value="1">1 Euro</option>
+                    <option value="2">2 Euro</option>
+                    <option value="5">5 Euro</option>
+                </select>
+            </div>
+            <div class="reels">
+                <div class="reel" id="reel1">?</div>
+                <div class="reel" id="reel2">?</div>
+                <div class="reel" id="reel3">?</div>
+            </div>
+            <button id="spin-button">Spin</button>
+            <div id="win-banner">Big Win!</div>
+            <div id="try-again-banner">Try Again</div>
+            <div id="win-amount">Gewinn: 0 Euro</div>
+        </div>
+    </main>
+    <script>
+       
+       const symbols = ["🍒", "🍊", "🍇", "🔔", "💎"];
+        const spinButton = document.getElementById("spin-button");
+        const reels = [document.getElementById("reel1"), document.getElementById("reel2"), document.getElementById("reel3")];
+        const winBanner = document.getElementById("win-banner");
+        const tryAgainBanner = document.getElementById("try-again-banner");
+        const winAmount = document.getElementById("win-amount");
+        const balanceDisplay = document.getElementById("balance");
+        const betSelector = document.getElementById("bet");
+
+        let balance = 1000;
+        let currentBet = parseFloat(betSelector.value);
+        let hasSpun = false;
+
+        function updateBalance() {
+            if (hasSpun) {
+                balance -= currentBet;
+            }
+            balanceDisplay.textContent = `Kontostand: ${balance.toFixed(2)} Euro`;
+        }
+
+        function calculateWin(result) {
+            const winFactors = {
+                "🍒": 0.5,
+                "🍊": 1,
+                "🍇": 2,
+                "🔔": 5,
+                "💎": 10,
+            };
+
+            return winFactors[result] * currentBet;
+        }
+
+        function spinReels() {
+            if (balance < currentBet) {
+                alert("Nicht genug Guthaben. Bitte wählen Sie einen niedrigeren Einsatz.");
+                return;
+            }
+
+            spinButton.disabled = true;
+            betSelector.disabled = true;
+            let spinsLeft = 3;
+
+            function spinOneReel() {
+                spinsLeft--;
+
+                if (spinsLeft === 0) {
+                    spinButton.disabled = false;
+                    betSelector.disabled = false;
+                    hasSpun = true;
+
+                    // Überprüfen, ob es einen Gewinn gibt
+                    if (reels[0].textContent === reels[1].textContent && reels[1].textContent === reels[2].textContent) {
+                        // Gewonnen! Zeige den Gewinn-Banner und berechne den Gewinn
+                        const win = calculateWin(reels[0].textContent);
+                        winBanner.style.display = "block";
+                        winBanner.classList.add("animated");
+                        startConfettiAnimation();
+
+                        // Aktualisieren Sie den Kontostand und den Gewinnbetrag
+                        balance += win;
+                        balanceDisplay.textContent = `Kontostand: ${balance.toFixed(2)} Euro`;
+                        winAmount.textContent = `Gewinn: ${win.toFixed(2)} Euro`;
+                    } else {
+                        // Kein Gewinn, zeige den "Try Again"-Banner und füge eine Shake-Animation hinzu
+                        tryAgainBanner.style.display = "block";
+                        tryAgainBanner.classList.add("animated");
+                        setTimeout(() => {
+                            tryAgainBanner.style.display = "none";
+                            tryAgainBanner.classList.remove("animated");
+                        }, 1000);
+                        reels.forEach(reel => {
+                            reel.style.animation = "shake 0.5s";
+                            setTimeout(() => {
+                                reel.style.animation = "";
+                            }, 500);
+                        });
+                    }
+                }
+
+                reels.forEach((reel, index) => {
+                    setTimeout(() => {
+                        const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+                        reel.textContent = randomSymbol;
+                    }, index * 500);
+                });
+
+                updateBalance();
+            }
+
+            // Entfernen Sie die Animationen
+            winBanner.addEventListener("animationend", () => {
+                winBanner.classList.remove("animated");
+            });
+
+            tryAgainBanner.addEventListener("animationend", () => {
+                tryAgainBanner.classList.remove("animated");
+            });
+
+            spinOneReel();
+            setTimeout(spinOneReel, 500);
+            setTimeout(spinOneReel, 1000);
+        }
+
+        function startConfettiAnimation() {
+            const confettiContainer = document.createElement("div");
+            confettiContainer.className = "confetti-container";
+            document.body.appendChild(confettiContainer);
+
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement("div");
+                confetti.className = "confetti";
+                confetti.style.left = `${Math.random() * window.innerWidth}px`;
+                confettiContainer.appendChild(confetti);
+            }
+
+            setTimeout(() => {
+                confettiContainer.remove();
+                winBanner.style.display = "none";
+                winAmount.textContent = "Gewinn: 0 Euro";
+            }, 5000); // Entfernen Sie das Konfetti und den Banner nach 5 Sekunden
+        }
+
+        spinButton.addEventListener("click", spinReels);
+        betSelector.addEventListener("change", () => {
+            currentBet = parseFloat(betSelector.value);
+            updateBalance();
+        });
+
+        updateBalance(); // Initialen Kontostand anzeigen
+
+
+
+    </script>
+
+</body>
+</html>
+

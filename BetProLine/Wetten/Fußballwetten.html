@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fußballwetten</title>
+    <style>
+        /* CSS-Stile hier einfügen */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://hintergrundbild.org/wallpaper/full/a/7/b/31466-popular-fussball-hintergrundbilder-1920x1080-retina.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        #logo {
+            position: absolute; /* Positionierung des Logos */
+            top: 10px; /* Anpassen, um die vertikale Position zu ändern */
+            right: 20px; /* Anpassen, um die horizontale Position zu ändern */
+            max-width: 150px; /* Maximale Breite des Logos */
+        }
+        .tabs {
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: transparent;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #ff5722;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tab:hover {
+            background-color: #ff5722;
+            color: #fff;
+        }
+
+
+        .menu-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+            z-index: 999;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Wettboxen-Stile */
+        .wettbox {
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .wettbox h3 {
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        .mannschaften {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .mannschaft {
+            flex: 1;
+            text-align: center;
+        }
+
+        .mannschaft-name {
+            font-weight: bold;
+        }
+
+        .quote {
+            background-color: #ff5722;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .ergebnis-schaetzung {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .ergebnis-schaetzung input[type="text"] {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .wetteinsatz {
+            margin-top: 10px;
+        }
+
+        .wetteinsatz select {
+            width: 100px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .wett-button {
+            background-color: #ff5722;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .wett-button:hover {
+            background-color: #d84315;
+        }
+
+        /* Neue Navigationsbuttons */
+        .navigation-buttons {
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .navigation-buttons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+
+        .navigation-buttons a:hover {
+            background-color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo hinzufügen und positionieren -->
+        <img id="logo" src="file:///Users/hypedbenni/Desktop/Web Entwicklung /BetProLine/Logos /RealOne2023-09-06 um 11.22.22.png" alt="ProBetLine Logo">
+        <h1>Fußballwetten</h1>
+    </header>
+    
+    <div class="tabs">
+        <a href="file:///Users/hypedbenni/Desktop/Web%20Entwicklung%20/BetProLine/Index.html" class="tab">Startseite</a>
+        <a href="file:///Users/hypedbenni/Desktop/Web Entwicklung /BetProLine/Dienstleistungen im Überblick /Dienstleistungen.html" class="tab">Dienstleistungen</a>
+        <a href="file:///Users/hypedbenni/Desktop/Web%20Entwicklung%20/BetProLine/Slot/Slot.html" class="tab">Slotmaschine</a>
+        <a href="file://Users/hypedbenni/Desktop/Web Entwicklung /BetProLine/Mein Konto /MeinKonto.html" class="tab">Mein Konto</a> 
+        <a href="file:///Users/hypedbenni/Desktop/Web%20Entwicklung%20/BetProLine/Kontakt%20/Kontakte.html" class="tab">Kontakt</a>
+        <a href="file:///Users/hypedbenni/Desktop/Web%20Entwicklung%20/BetProLine/Über%20uns%20/UeberUns.html" class="tab">Über uns</a>
+        <a href="https://sports.tipico.de/de" class="tab">Partner Tipico</a>
+    </div>
+
+
+    <main>
+        <h2>Platzieren Sie Ihre Wetten</h2>
+
+        <!-- Wettauswahl nach Liga -->
+        <div class="league-selector">
+            <label for="league">Wettauswahl:</label>
+            <select id="league">
+                <option value="bundesliga">Bundesliga</option>
+                <option value="premierleague">Premier League</option>
+                <option value="laliga">La Liga</option>
+            </select>
+        </div>
+
+        <!-- Wettboxen -->
+        <div class="wettbox">
+            <h3>Spiel 1</h3>
+            <div class="mannschaften">
+                <div class="mannschaft">
+                    <span class="mannschaft-name">Mannschaft A</span>
+                    <span class="quote">2.00</span>
+                </div>
+                <div class="mannschaft">
+                    <span class="mannschaft-name">Mannschaft B</span>
+                    <span class="quote">1.75</span>
+                </div>
+            </div>
+            <div class="ergebnis-schaetzung">
+                <input type="text" placeholder="0" disabled>
+                <span>- : -</span>
+                <input type="text" placeholder="0" disabled>
+            </div>
+            <div class="wetteinsatz">
+                <label for="bet">Wetteinsatz:</label>
+                <select id="bet">
+                    <option value="1">1 Euro</option>
+                    <option value="2">2 Euro</option>
+                    <option value="5">5 Euro</option>
+                    <option value="10">10 Euro</option>
+                    <option value="100">100 Euro</option>
+                </select>
+            </div>
+            <div class="wettart">
+                <label for="wettart">Wettart:</label>
+                <select id="wettart">
+                    <option value="handicap">Handicap</option>
+                    <option value="headtohead">Head-to-Head</option>
+                    <option value="doppeltechance">Doppelte Chance</option>
+                    <option value="halbzeit">Wer gewinnt die Halbzeit</option>
+                    <option value="beideteams">Beide Teams treffen</option>
+                </select>
+            </div>
+            <div class="ergebnis-schaetzung" id="ergebnis-schaetzung">
+                <label for="mannschaft">Mannschaft:</label>
+                <select id="mannschaft">
+                    <option value="mannschaftA">Mannschaft A</option>
+                    <option value="mannschaftB">Mannschaft B</option>
+                </select>
+            </div>
+            <button class="wett-button">Wette setzen</button>
+        </div>
+
+        <!-- Wettbox 2 -->
+        <div class="wettbox">
+            <h3>Spiel 2</h3>
+            <div class="mannschaften">
+                <div class="mannschaft">
+                    <span class="mannschaft-name">Mannschaft X</span>
+                    <span class="quote">1.50</span>
+                </div>
+                <div class="mannschaft">
+                    <span class="mannschaft-name">Mannschaft Y</span>
+                    <span class="quote">2.25</span>
+                </div>
+            </div>
+            <div class="ergebnis-schaetzung">
+                <input type="text" placeholder="0" disabled>
+                <span>- : -</span>
+                <input type="text" placeholder="0" disabled>
+            </div>
+            <div class="wetteinsatz">
+                <label for="bet">Wetteinsatz:</label>
+                <select id="bet">
+                    <option value="1">1 Euro</option>
+                    <option value="2">2 Euro</option>
+                    <option value="5">5 Euro</option>
+                    <option value="10">10 Euro</option>
+                    <option value="100">100 Euro</option>
+                </select>
+            </div>
+            <div class="wettart">
+                <label for="wettart">Wettart:</label>
+                <select id="wettart">
+                    <option value="handicap">Handicap</option>
+                    <option value="headtohead">Head-to-Head</option>
+                    <option value="doppeltechance">Doppelte Chance</option>
+                    <option value="halbzeit">Wer gewinnt die Halbzeit</option>
+                    <option value="beideteams">Beide Teams treffen</option>
+                </select>
+            </div>
+            <div class="ergebnis-schaetzung" id="ergebnis-schaetzung">
+                <label for="mannschaft">Mannschaft:</label>
+                <select id="mannschaft">
+                    <option value="mannschaftX">Mannschaft X</option>
+                    <option value="mannschaftY">Mannschaft Y</option>
+                </select>
+            </div>
+            <button class="wett-button">Wette setzen</button>
+        </div>
+
+        <!-- Wettbox 3 -->
+        <div class="wettbox">
+            <h3>Spiel 3</h3>
+            <div class="mannschaften">
+                <div class="mannschaft">
+                    <span class="mannschaft-name">Mannschaft P</span>
+                    <span class="quote">1.80</span>
+                </div>
+                <div class="mannschaft">
+                    <span class="mannschaft-name">Mannschaft Q</span>
+                    <span class="quote">1.95</span>
+                </div>
+            </div>
+            <div class="ergebnis-schaetzung">
+                <input type="text" placeholder="0" disabled>
+                <span>- : -</span>
+                <input type="text" placeholder="0" disabled>
+            </div>
+            <div class="wetteinsatz">
+                <label for="bet">Wetteinsatz:</label>
+                <select id="bet">
+                    <option value="1">1 Euro</option>
+                    <option value="2">2 Euro</option>
+                    <option value="5">5 Euro</option>
+                    <option value="10">10 Euro</option>
+                    <option value="100">100 Euro</option>
+                </select>
+            </div>
+            <div class="wettart">
+                <label for="wettart">Wettart:</label>
+                <select id="wettart">
+                    <option value="handicap">Handicap</option>
+                    <option value="headtohead">Head-to-Head</option>
+                    <option value="doppeltechance">Doppelte Chance</option>
+                    <option value="halbzeit">Wer gewinnt die Halbzeit</option>
+                    <option value="beideteams">Beide Teams treffen</option>
+                </select>
+            </div>
+            <div class="ergebnis-schaetzung" id="ergebnis-schaetzung">
+                <label for="mannschaft">Mannschaft:</label>
+                <select id="mannschaft">
+                    <option value="mannschaftP">Mannschaft P</option>
+                    <option value="mannschaftQ">Mannschaft Q</option>
+                </select>
+            </div>
+            <button class="wett-button">Wette setzen</button>
+        </div>
+
+    </main>
+
+    <script>
+        // JavaScript-Funktionen hier einfügen
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
